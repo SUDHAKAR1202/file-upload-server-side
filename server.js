@@ -7,7 +7,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/filesDB', { useNewUrlParser: true, u
 .catch(err => console.error(err))
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*'}));
 app.use(express.json());
 
 const multer = require('multer');
