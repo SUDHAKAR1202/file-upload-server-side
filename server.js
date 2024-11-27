@@ -9,7 +9,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/filesDB', { useNewUrlParser: true, u
     .catch(err => console.error(err))
 
 const app = express();
-app.use(cors({ origin: '*' }));
+app.use(cors({
+    origin: 'https://file-upload-client-side.vercel.app',  // Allow frontend domain
+    methods: ['GET', 'POST'], // Allow GET and POST methods
+    allowedHeaders: ['Content-Type'], // Allow Content-Type header
+  }));
 app.use(express.json());
 
 const multer = require('multer');
