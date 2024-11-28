@@ -21,7 +21,7 @@ app.use(cors({
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
   });
-  
+
 app.use(express.json());
 
 const multer = require('multer');
@@ -61,7 +61,10 @@ app.post('/upload', upload.single('file'), async (req, res) => {
             cloudinary_id: req.file.filename, // Cloudinary public ID
         });
         await newFile.save();
-        res.status(201).send(newFile);
+        setTimeout(() => {
+            res.status(201).send(newFile);
+        },15000)
+        
     } catch (err) {
         console.error(err);
         res.status(500).send(err);
