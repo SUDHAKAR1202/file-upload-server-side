@@ -5,6 +5,24 @@
     ],
     "routes": [
       { "src": "/(.*)", "dest": "server.js" }
-    ]
-  }
+    ],
+    
+      "headers": [
+        {
+          "source": "/(.*)",
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "https://file-upload-client-side.vercel.app"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET, POST, PUT, DELETE"
+            }
+          ]
+        }
+      ]
+    }
+    
+  
   

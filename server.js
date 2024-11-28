@@ -14,6 +14,14 @@ app.use(cors({
     methods: ['GET', 'POST'], // Allow GET and POST methods
     allowedHeaders: ['Content-Type'], // Allow Content-Type header
   }));
+
+  app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://file-upload-client-side.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+  
 app.use(express.json());
 
 const multer = require('multer');
