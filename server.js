@@ -61,9 +61,9 @@ app.post('/upload', upload.single('file'), async (req, res) => {
             cloudinary_id: req.file.filename, // Cloudinary public ID
         });
         await newFile.save();
-        setTimeout(() => {
-            res.status(201).send(newFile);
-        },15000)
+        
+        res.status(201).send(newFile);
+        
         
     } catch (err) {
         console.error(err);
