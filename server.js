@@ -10,7 +10,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/filesDB', { useNewUrlParser: true, u
 
 const app = express();
 app.use(cors({
-    origin: 'https://file-upload-client-side.vercel.app',  // Allow frontend domain
+    origin: 'https://file-upload-client-side.vercel.app',
+    origin: 'www.file-upload-client-side.vercel.app',
     methods: ['GET', 'POST'], // Allow GET and POST methods
     allowedHeaders: ['Content-Type'], // Allow Content-Type header
   }));
